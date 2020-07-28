@@ -2,6 +2,31 @@
   text-align: center;
 }
 
+.carousel.carousel-slider .control-arrow:hover {
+  background: rgb(255 255 255 / 20%);
+}
+
+.carousel  {
+  min-width: 100%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  background: white;
+}
+
+.carousel .slide {
+  min-width: 100%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  background: #fff;
+}
+
+.carousel .slide {
+  background: #fff;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,9 +49,89 @@
   color: white;
 }
 
+.margin1{
+  margin-top: 1px;
+}
+
 .App-link {
   color: #61dafb;
 }
+
+.carousel .thumb {
+  display: none;
+}
+
+.opciones{
+  padding: 0px 86px;
+  background: white;
+  
+}
+
+.flex{
+  padding: 63px;
+  margin-top: -15.9%;
+  margin-left: -20px;
+}
+
+.flex > div{
+  margin-left: 1px;
+}
+
+.wrap{
+  display: flex;
+  padding: 2%;
+}
+.carousel .wi{
+   
+  width: 10px;
+  height: 140px;
+}
+.vi{
+  width: 142px;
+  height: 189px;
+}
+
+.blanc{
+  height: 145px;
+  margin-top: -85px;
+}
+.blanc1{
+  height: 135px;
+  margin-top: -143px;
+}
+
+.lic{
+  width: 135px;
+  height: 145px;
+  margin-top: -44px;
+}
+
+.on{
+  width: 135px;
+  height: 145px;
+  margin-top: -44px;
+}
+
+.cc{
+  width: 142px;
+  height: 194px;
+}
+
+.menuha{
+  background: white;
+}
+
+
+div{
+  background: white;
+  
+}
+
+.bm-burger-button{
+  background: white;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +141,5 @@
     transform: rotate(360deg);
   }
 }
+
+
