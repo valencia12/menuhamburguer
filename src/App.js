@@ -1,16 +1,18 @@
 //example
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import {Carousel} from 'react-responsive-carousel';
+import Carousel, { arrowsPlugin } from '@brainhubeu/react-carousel';
+// import Carousel, { arrowsPlugin } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 import { slide as Menu } from 'react-burger-menu'
-
+import  CarouselC from './components/CarouselC.js'
 //example
 
 
 
 //First view
-import home from './assets/market1.png';
+import home from './assets/index.png';
 //Second view 
 import logo from './assets/1m.png';
 import menu1 from './assets/menu1.png';
@@ -48,6 +50,9 @@ import w2 from './assets/ww1.png';
 import onn1 from './assets/on1.png';
 import on11 from './assets/on11.png';
 import on_11 from './assets/on111.png';
+import blanc1 from './assets/blanc1.png';
+import espum from './assets/espum1.png';
+import tinto1m from './assets/tinto1.png';
 import cla11 from './assets/cla1.png';
 import ll11 from './assets/ll1.png';
 import lll11 from './assets/lll1.png';
@@ -59,62 +64,94 @@ import infusion from './assets/infusion1.png';
 //menu infor
 import sweetinfor from './assets/sweetin.png';
 import soopsin1 from './assets/soopsin.png';
+import cafeo1 from './assets/cafeo.png';
 import infuin from './assets/infuin.png';
 
+//Menu
+import hambur from './assets/hambur.png'
 
+ 
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = { value: 0 };
+    this.onChange = this.onChange.bind(this); 
+    this.onClick = this.onClick.bind(this);
+  }
 
-function App() {
-  
+  onChange(value) {
+    this.setState({value});
+  }
+
+  onClick(value){
+    this.setState({value});
+  }
+
+  handleEvent(){
+    console.log(this.props);
+  }
+    
+  render(){
   return (
-    <div className="App">
-     
-     <Carousel >
-       
-          <Menu>
-          
-          <a id="home" className="menu-item" href="1">Menu</a>
-          <a id="about" className="menu-item" href="#">About</a>
-          <a id="contact" className="menu-item" href="#">Contact</a>
-          <a className="menu-item--small" href="#">Settings</a>
-          <Carousel>
+    
 
-            
-          </Carousel>
-          </Menu>
+    <div>
         
+    <div className="App">
+    
+    <Menu>
+          <div>
+          <a value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 0))} id="home" className="menu-item" >Home</a><br/><br/> 
+           <a value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 1))} id="home" className="menu-item" >Menú</a><br/><br/>
+           <a value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 11))} id="about" className="menu-item">Bebidas</a><br/><br/>
+           <a value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 23))} id="contact" className="menu-item" >Postres</a><br/><br/><br/>
+           
+           </div>
+           </Menu>
+      <div className="positionhv">
+        <img src={hambur}/>
+      </div>
+     <Carousel  value={this.state.value} onChange={this.onChange}
+     slides={[
+      (<div>1</div>),
+      (<div>2</div>)
+     ]}
+     >
+     
         <div>
+        
          <img src={home}/>
         </div>
        
        <div>
          <div className="opciones">
-           <img src={logo} />
-           <img src={menu1}/>
-           <img src={bebidas}/>
-           <img src={pos}/>
+           <img  src={logo} />
+           <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 2))} src={menu1}/>
+           <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 11))}  src={bebidas}/>
+           <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 23))}  src={pos}/>
          </div>
-        </div>
+        </div>  
        
-       <div>
+       <div >
           <div className="wrap">
-            <img src={tapas}/>
-            <img className="margin1" src={pizz}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 3))} src={tapas}/>
+            <img className="margin1" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 7))}  src={pizz}/>
           </div>
           <div className="wrap">
-            <img src={crudos}/>
-            <img src={panes1}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 4))} src={crudos}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 8))}  src={panes1}/>
           </div>
           <div className="wrap"> 
-            <img src={sushi}/>
-            <img src={tacos}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 5))}  src={sushi}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 9))}  src={tacos}/>
           </div>
           <div className="wrap"> 
-            <img src={ensaladas}/>
-            <img src={delacasa}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 6))}  src={ensaladas}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 10))}  src={delacasa}/>
           </div>
         </div>
 
-        <div id="1" className="landing">
+        <div  className="landing">
             <img src={tapainfo}/>
         </div>
 
@@ -149,25 +186,25 @@ function App() {
         <div className="flex">
          <div>
           <div className="wrap">
-            <img  className="wi" src={wis}/>
-            <img className="vi" src={vin}/>
+            <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 12))}  className="wi" src={wis}/>
+            <img  className="vi" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 19))}  src={vin}/>
           </div>
           <div className="wrap">
-            <img className="on" src={ontap}/>
-            <img className="cc" src={coctails}/>
+            <img className="on" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 14))}  src={ontap}/>
+            <img className="cc" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 20))} src={coctails}/>
           </div>
           <div className="wrap">
-            <img className="blanc" src={blanco}/>
-            <img className="cc" src={licor}/>
+            <img className="blanc" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 17))}  src={blanco}/>
+            <img className="cc" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 21))}  src={licor}/> 
           </div>
           <div className="wrap">
-            <img className="blanc1" src={esp}/>
+            <img className="blanc1" value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 18))} src={esp}/>
             <img/>
           </div>
          </div>
         </div>
         <div className="landing">
-          <img src={w1}/> 
+          <img src={w1}/>
         </div>
 
         <div>
@@ -183,6 +220,15 @@ function App() {
         <img src={on_11}/> 
         </div>
         <div>
+        <img src={blanc1}/> 
+        </div>
+        <div>
+        <img src={espum}/>
+        </div>
+        <div>
+        <img src={tinto1m}/>
+        </div>
+        <div>
         <img src={cla11}/> 
         </div>
         <div>
@@ -193,25 +239,30 @@ function App() {
         </div>
         <div>
           <div className="opciones">
-          <img src={sweets}/>
-          <img src={scoops11}/>
-          <img src={cafe11}/>
-          <img src={infusion}/>
+          <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 24))} src={sweets}/>
+          <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 25))} src={scoops11}/>
+          <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 26))}  src={cafe11}/>
+          <img value={this.state.value} onClick={e => this.onClick(parseInt(e.target.value || 27))}  src={infusion}/>
           </div>
         </div>
         <div> 
-          <img src={sweetinfor}/>
+          <img  src={sweetinfor}/>
         </div>
         <div>
           <img src={soopsin1}/>
+        </div>
+        <div>
+          <img src={cafeo1}/>
         </div>
         <div>
           <img src={infuin}/>
         </div>
      </Carousel>
     </div>
-    
+    </div>
+   
   );
+}
 }
 
 export default App;

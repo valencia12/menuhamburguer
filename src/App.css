@@ -131,6 +131,13 @@ div{
   background: white;
 }
 
+.positionhv > img{
+  width: 31px;
+  margin-top: 11px;
+  margin-left: 308px;
+  
+}
+
 
 
 @keyframes App-logo-spin {
